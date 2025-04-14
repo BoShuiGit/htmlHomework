@@ -1,13 +1,15 @@
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <title>SVT Nyheter</title>
 </head>
 <body class="bg-gray-100">
-
+<header>
 <nav class="bg-white">
   <div class="mx-[15%] flex items-center justify-between h-16">
 
@@ -32,10 +34,10 @@
 
 
 <div class="h-1 bg-red-600 w-full"></div>
+</header>
 
-
-<div class="mx-[15%] mt-4">
-  <div class="grid grid-cols-1 gap-2">
+<section id="section1" class="mx-[15%] mt-4">
+  <div id="section1-container" class="grid grid-cols-1 gap-2">
     <!-- Breaking News Item 1 -->
     <div class="flex">
       <div class="bg-red-600 text-white font-bold px-4 py-3 flex items-center justify-center rounded-l">
@@ -56,82 +58,82 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 
 <main class="mx-[15%] mt-4">
   <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
 
-    <div class="md:col-span-2">
+    <div id="main-news-column" class="md:col-span-2">
 
       <div class="grid grid-cols-1 gap-2">
-
-        <a href="https://www.svt.se/nyheter/utrikes/utrikesminister-maria-malmer-stenergard-m-om-gripne-turkiske-borgmastaren-mycket-allvarligt">
-          <article class="bg-white p-4 rounded shadow-sm">
-            <div class="relative mb-3">
+        <article id="article-1" class="new-article bg-white p-4 rounded shadow-sm">
+          <a href="https://www.svt.se/nyheter/utrikes/utrikesminister-maria-malmer-stenergard-m-om-gripne-turkiske-borgmastaren-mycket-allvarligt">
+            <div class="article-image relative mb-3">
               <img src="/img/src1.png" alt="there is not text to shown here" class="w-full h-auto rounded" />
             </div>
-            <h2 class="text-2xl font-bold mb-2">Svenska politiker kritiska till fangslandet av Imamoglu</h2>
-            <p class="text-gray-700">TURKIET Ett gripande som oppositionen beskriver som politiskt motiverat, och som fatt hundratusentals att demonstrera mot president Erdogan.</p>
-          </article>
-        </a>
-
-
-        <article class="bg-white p-4 rounded shadow-sm">
-          <a href="https://edition.cnn.com/2023/04/07/world/gallery/charles-camilla/index.html" class="">
-            <h2 class="text-xl md:text-lg lg:text-xl pb-2">Charles and Camilla</h2>
+            <h2 class="article-title text-2xl font-bold mb-2">Svenska politiker kritiska till fangslandet av Imamoglu</h2>
+            <p class="article-content text-gray-700">TURKIET Ett gripande som oppositionen beskriver som politiskt motiverat, och som fatt hundratusentals att demonstrera mot president Erdogan.</p>
           </a>
-          <a href="https://edition.cnn.com/2023/04/07/world/gallery/charles-camilla/index.html" class="">
-            <img src="/img/king.png" alt="Utrikesminister" class="w-full h-auto rounded mb-2" />
-          </a>
-          <p class="text-base md:text-sm">
-            Charles celebrite many years of merriage.
-          </p>
-          <p class="text-base md:text-sm">When Charles joined the Royal Navy in 1971, Camilla married cavalry officer Andrew Parker Bowles.</p>
         </article>
 
 
-        <div class="border-t-4 border-red-600 pt-2">
+        <article id="article-2" class="news-article bg-white p-4 rounded shadow-sm">
+
+          <a href="https://edition.cnn.com/2023/04/07/world/gallery/charles-camilla/index.html" class="">
+                <h2 class="article-title text-xl md:text-lg lg:text-xl pb-2">Charles and Camilla</h2>
+              <div class="article-image">
+                <img src="/img/king.png" alt="Utrikesminister" class="w-full h-auto rounded mb-2" />
+              </div>
+              <div class="article-content">
+                <p class="text-base md:text-sm">Charles celebrite many years of merriage.</p>
+                <p class="text-base md:text-sm">When Charles joined the Royal Navy in 1971, Camilla married cavalry officer Andrew Parker Bowles.</p>
+              </div>
+          </a>
+
+        </article>
+
+
+        <div class="utrikes-section border-t-4 border-red-600 pt-2">
           <div class="flex items-center mb-2">
             <h2 class="text-xl font-bold">UTRIKES > </h2>
           </div>
 
-          <article class="bg-white p-4 rounded shadow-sm">
-            <div class="relative mb-3">
+          <article id="article-3" class="news-article bg-white p-4 rounded shadow-sm">
+            <div class="article-image relative mb-3">
               <img src="/img/trump.png" alt="Trump news" class="w-full h-auto rounded" />
-
             </div>
-            <h3 class="text-xl font-bold mb-2">Is Trumps tariff war a killer for the fashion industry</h3>
-            <p class="text-gray-700">Senaste nytt om presidentens uttalanden kring nya tullpolitiken.</p>
+            <h3 class="article-title text-xl font-bold mb-2">Is Trumps tariff war a killer for the fashion industry</h3>
+            <p class="article-content text-gray-700">Senaste nytt om presidentens uttalanden kring nya tullpolitiken.</p>
           </article>
         </div>
 
 
-        <article class="bg-white p-4 rounded shadow-sm">
+        <article id="article-4" class="bg-white p-4 rounded shadow-sm">
           <a href="https://www.svt.se/nyheter/utrikes/utrikesminister-maria-malmer-stenergard-m-om-gripne-turkiske-borgmastaren-mycket-allvarligt" class="">
-            <h2 class="text-xl md:text-lg lg:text-xl pb-2">Utrikesminister om gripandet</h2>
-          </a>
-          <a href="https://www.svt.se/nyheter/utrikes/utrikesminister-maria-malmer-stenergard-m-om-gripne-turkiske-borgmastaren-mycket-allvarligt" class="">
+            <h2 class="article-title text-xl md:text-lg lg:text-xl pb-2">Utrikesminister om gripandet</h2>
+          <div class="article-image">
             <img src="" alt="Utrikesminister" class="w-full h-auto rounded mb-2" />
+          </div>
+            <div class="article-content">
+              <p class="text-base md:text-sm">Svenska politiker kritiska till fangslandet av Imamoglu.</p>
+              <p class="text-base md:text-sm">Utrikesministern kommenterar situationen kring det kontroversiella gripandet.</p>
+            </div>
           </a>
-          <p class="text-base md:text-sm">
-            Svenska politiker kritiska till fangslandet av Imamoglu.
-          </p>
-          <p class="text-base md:text-sm">Utrikesministern kommenterar situationen kring det kontroversiella gripandet.</p>
         </article>
       </div>
     </div>
 
 
-    <div class="md:col-span-1">
+    <div id="sidebar-column" class="md:col-span-1">
       <div class="grid grid-cols-1 gap-2">
 
-        <div class="bg-white rounded">
+        <aside id="snabbkollen-widget" class="sidebar-widget bg-white rounded">
           <div class="bg-red-600 py-2 px-4 rounded-t">
             <h3 class="text-white font-bold">SNABBKOLLEN</h3>
           </div>
-          <div class="p-4">
-            <div class="border-b border-gray-200 py-3">
+          <div class="widget-content p-4">
+            <div class="snabbkollen-item border-b border-gray-200 py-3">
               <div class="flex justify-between items-center">
                 <p class="font-medium">Studie: Mindre gift i Ostersjofisk</p>
                 <span class="text-gray-500">&#62;</span>
@@ -143,36 +145,36 @@
                 <span class="text-gray-500">&#62;</span>
               </div>
             </div>
-            <div class="py-3">
+            <div class="snabbkollen-item py-3">
               <div class="flex justify-between items-center">
                 <p class="font-medium">Trump: Var i valdigt god form</p>
                 <span class="text-gray-500">&#62;</span>
               </div>
             </div>
           </div>
-        </div>
+        </aside>
 
 
-        <div class="bg-white rounded">
-          <div class="bg-red-600 py-2 px-4 rounded-t">
+        <aside id="svt-play-widget" class="bg-white rounded">
+          <div class="widget-header bg-red-600 py-2 px-4 rounded-t">
             <h3 class="text-white font-bold">SENASTE AVSNITTET PA SVT PLAY</h3>
           </div>
-          <div class="p-4">
-            <div class="relative mb-2">
+          <div class="widget-content p-4">
+            <div class="play-item relative mb-2">
               <img src="/img/news.png" alt="Rapport" class="video w-full h-auto rounded" />
             </div>
             <h3 class="font-bold">Rapport</h3>
             <p class="text-gray-600 text-sm">Senast 23:00</p>
           </div>
-        </div>
+        </aside>
 
 
-        <div class="bg-white rounded">
-          <div class="bg-red-600 py-2 px-4 rounded-t">
+        <aside id="most-watched-widget" class="sidebar-widget bg-white rounded">
+          <div class="widget-header bg-red-600 py-2 px-4 rounded-t">
             <h3 class="text-white font-bold">MEST TITTAT</h3>
           </div>
-          <div class="p-4">
-            <div class="flex items-center mb-4">
+          <div class="widget-content p-4">
+            <div class="most-watched-item flex items-center mb-4">
               <div class="relative flex-shrink-0">
                 <img src="/img/kung.png" alt="AIK" class="video w-24 h-16 object-cover rounded" />
 
@@ -182,7 +184,7 @@
               </div>
             </div>
 
-            <div class="flex items-center">
+            <div class="most-watched-item flex items-center">
               <div class="relative flex-shrink-0">
                 <img src="/img/fashion.png" alt="Fashion" class="video w-24 h-16 object-cover rounded" />
               </div>
@@ -191,7 +193,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </aside>
       </div>
     </div>
   </div>
