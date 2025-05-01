@@ -1,5 +1,5 @@
 
-window.onload = function() {
+document.addEventListener("DOMContentLoaded", function(){
 
   var videos = document.querySelectorAll('.video');
 
@@ -35,7 +35,60 @@ window.onload = function() {
 
     img.parentNode.appendChild(play);
   });
-};
+});
 
+// document.addEventListener("DOMContentLoaded",function(){
+//   localStorage.setItem("newsOne", JSON.stringify({"title":"myTitle", "content":"myContent"}));
+//   local.Storage.setItem("newsTwo", JSON.stringify({"title":"myTitle", "content":"myContent"}));
+//   localStorage.setItem("newsThree", JSON.stringify({"title":"myTitle", "content":"myContent"}));
+// })
+
+document.addEventListener("DOMContentLoaded", function () {
+  const articleSelect = document.getElementById("articleSelect");
+  const editSection = document.getElementById("editSection");
+  const titleInput = document.getElementById("titleInput");
+  const contentInput = document.getElementById("contentInput");
+
+  const previewButton = document.getElementById("previewButton");
+  const previewContainer = document.getElementById("previewContainer");
+  const previewTitle = document.getElementById("previewTitle");
+  const previewContent = document.getElementById("previewContent");
+  const applyButton = document.getElementById("applyButton");
+
+  let currentArticleId = "";
+
+  articleSelect.addEventListener("change", () => {
+    const selected = articleSelect.value;
+    if (selected) {
+      currentArticleId = selected + "Display";
+      const article = document.getElementById(currentArticleId);
+      const currentTitle = article.querySelector("h3").textContent;
+      const currentContent = article.querySelector("p").textContent;
+      titleInput.value = currentTitle;
+      contentInput.value = currentContent;
+
+      editSection.classList.remove("hidden");
+      previewContainer.classList.add("hidden");
+    } else {
+      editSection.classList.add("hidden");
+      previewContainer.classList.add("hidden");
+    }
+  });
+
+  previewButton.addEventListener("click", () => {
+    previewTitle.textContent = titleInput.value.trim();
+    previewContent.textContent = contentInput.value.trim();
+    previewContainer.classList.remove("hidden");
+  });
+
+  applyButton.addEventListener("click", () => {
+    if (currentArticleId) {
+      const article = document.getElementById(currentArticleId);
+      article.querySelector("h3").textContent = titleInput.value.trim();
+      article.querySelector("p").textContent = contentInput.value.trim();
+      alert("Changes applied to the article (in DOM only).");
+    }
+  });
+});
 
 
