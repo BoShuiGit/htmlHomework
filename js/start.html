@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Start Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .button {
+      padding: 15px 30px;
+      font-size: 18px;
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #3367d6;
+    }
+  </style>
+</head>
+<body>
+<h1>Welcome to SVT News</h1>
+<a href="index.html" class="button">Visit Website</a>
+
+<script>
+  // Initialize database when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set the six items in localStorage
+    localStorage.setItem("newsOne", JSON.stringify({
+      "title": "Technology Giant Releases Revolutionary Product",
+      "content": "The new device is expected to transform how people interact with digital content in their daily lives.",
+      "imgsrc": "/img/appleimg.jpeg",
+      "linkhref": "https://www.svt.se/nyheter/utrikes/apple-presenterar-satsning-med-openai",
+      "date": "2025-05-01"
+    }));
+
+    localStorage.setItem("newsTwo", JSON.stringify({
+      "title": "Sports Team Wins Championship After Dramatic Final",
+      "content": "In a stunning comeback, the underdogs managed to secure victory in the last minutes of the game.",
+      "imgsrc": "/img/sportnews.webp",
+      "linkhref": "https://www.svt.se/sport/fotboll/fridolina-rolfo-kan-tangera-lotta-schelins-rekord-inget-jag-tanker-pa",
+      "date": "2025-05-02"
+    }));
+
+    localStorage.setItem("newsThree", JSON.stringify({
+      "title": "New Climate Policy Announced",
+      "content": "Government officials have unveiled a comprehensive plan to reduce carbon emissions by 50% by 2030.",
+      "imgsrc": "/img/climat.png",
+      "linkhref": "https://www.svt.se/nyheter/inrikes/sma-klimatvinster-trots-regeringens-satsning-pa-vatmarker-i-sverige",
+      "date": "2025-05-03"
+    }));
+
+    localStorage.setItem("oldOne", JSON.stringify({
+      "title": "Svenska politiker kritiska till fangslandet av Imamoglu",
+      "content": "TURKIET Ett gripande som oppositionen beskriver som politiskt motiverat, och som fatt hundratusentals att demonstrera mot president Erdogan.",
+      "img": "/img/src1.png",
+      "link": "https://www.svt.se/nyheter/utrikes/utrikesminister-maria-malmer-stenergard-m-om-gripne-turkiske-borgmastaren-mycket-allvarligt",
+      "date": "2025-04-28"
+    }));
+
+    localStorage.setItem("oldTwo", JSON.stringify({
+      "title": "Charles celebrite many years of merriage.",
+      "content": "When Charles joined the Royal Navy in 1971, Camilla married cavalry officer Andrew Parker Bowles.",
+      "imgsrc": "/img/king.png",
+      "linkhref": "https://edition.cnn.com/2023/04/07/world/gallery/charles-camilla/index.html",
+      "date": "2025-04-29"
+    }));
+
+    localStorage.setItem("oldThree", JSON.stringify({
+      "title": "Is Trumps tariff war a killer for the fashion industry",
+      "content": "Senaste nytt om presidentens uttalanden kring nya tullpolitiken.",
+      "imgsrc": "/img/trump.png",
+      "linkhref": "https://www.svt.se/nyheter/utrikes/trump-pausar-handelstullarna-i-90-dagar",
+      "date": "2025-04-30"
+    }));
+
+    console.log("Database initialized successfully");
+  });
+</script>
+</body>
+</html>
