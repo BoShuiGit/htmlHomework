@@ -1,128 +1,63 @@
 
-<<<<<<< Updated upstream
-document.addEventListener("DOMContentLoaded", function(){
-=======
-document.addEventListener("DOMContentLoaded", function() {
->>>>>>> Stashed changes
+document.addEventListener('DOMContentLoaded', function() {
 
-  var videos = document.querySelectorAll('.video');
-  videos.forEach(function (img) {
-    img.parentNode.style.position = "relative";
+  const newsItems = [];
 
-    var play = document.createElement('div');
-    play.style.position = "absolute";
-    play.style.bottom = "5px";
-    play.style.left = "5px";
-    play.style.backgroundColor = "rgba(0,0,0,0.7)";
-    play.style.borderRadius = "50%";
-    play.style.width = "20px";
-    play.style.height = "20px";
-    play.style.display = "flex";
-    play.style.alignItems = "center";
-    play.style.justifyContent = "center";
 
-    var triangle = document.createElement('div');
-    triangle.style.width = "0";
-    triangle.style.height = "0";
-    triangle.style.borderTop = "4px solid transparent";
-    triangle.style.borderBottom = "4px solid transparent";
-    triangle.style.borderLeft = "6px solid white";
-    triangle.style.marginLeft = "2px"; // Center it a bit
+  const keys = ["newsOne", "newsTwo", "newsThree", "oldOne", "oldTwo", "oldThree"];
 
-    play.appendChild(triangle);
-    img.parentNode.appendChild(play);
+
+  keys.forEach(key => {
+    const item = localStorage.getItem(key);
+    if (item) {
+      const parsedItem = JSON.parse(item);
+
+      parsedItem.key = key;
+      newsItems.push(parsedItem);
+    }
   });
-<<<<<<< Updated upstream
-});
 
-// document.addEventListener("DOMContentLoaded",function(){
-//   localStorage.setItem("newsOne", JSON.stringify({"title":"myTitle", "content":"myContent"}));
-//   local.Storage.setItem("newsTwo", JSON.stringify({"title":"myTitle", "content":"myContent"}));
-//   localStorage.setItem("newsThree", JSON.stringify({"title":"myTitle", "content":"myContent"}));
-// })
 
-document.addEventListener("DOMContentLoaded", function () {
-  const articleSelect = document.getElementById("articleSelect");
-  const editSection = document.getElementById("editSection");
-  const titleInput = document.getElementById("titleInput");
-  const contentInput = document.getElementById("contentInput");
+  newsItems.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-  const previewButton = document.getElementById("previewButton");
-  const previewContainer = document.getElementById("previewContainer");
-  const previewTitle = document.getElementById("previewTitle");
-  const previewContent = document.getElementById("previewContent");
-  const applyButton = document.getElementById("applyButton");
 
-  let currentArticleId = "";
+  const articles = document.querySelectorAll('article.inrikes');
 
-  articleSelect.addEventListener("change", () => {
-    const selected = articleSelect.value;
-    if (selected) {
-      currentArticleId = selected + "Display";
-      const article = document.getElementById(currentArticleId);
-      const currentTitle = article.querySelector("h3").textContent;
-      const currentContent = article.querySelector("p").textContent;
-      titleInput.value = currentTitle;
-      contentInput.value = currentContent;
 
-      editSection.classList.remove("hidden");
-      previewContainer.classList.add("hidden");
+  for (let i = 0; i < Math.min(articles.length, newsItems.length); i++) {
+    if (newsItems[i] && articles[i]) {
+      const article = articles[i];
+      const newsItem = newsItems[i];
+
+
+      const img = article.querySelector('img');
+      const title = article.querySelector('h2.title');
+      const content = article.querySelector('p.content');
+      const link = article.querySelector('a.link');
+
+
+      if (img) img.src = newsItem.img || newsItem.imgsrc || "";
+      if (title) title.textContent = newsItem.title || "";
+      if (content) content.textContent = newsItem.content || "";
+      if (link) link.href = newsItem.link || newsItem.linkhref || "#";
+
+
+      const date = document.createElement('p');
+      date.className = 'text-gray-500 text-sm mt-2';
+      date.textContent = formatDate(newsItem.date);
+      article.appendChild(date);
     } else {
-      editSection.classList.add("hidden");
-      previewContainer.classList.add("hidden");
-    }
-  });
 
-  previewButton.addEventListener("click", () => {
-    previewTitle.textContent = titleInput.value.trim();
-    previewContent.textContent = contentInput.value.trim();
-    previewContainer.classList.remove("hidden");
-  });
-
-  applyButton.addEventListener("click", () => {
-    if (currentArticleId) {
-      const article = document.getElementById(currentArticleId);
-      article.querySelector("h3").textContent = titleInput.value.trim();
-      article.querySelector("p").textContent = contentInput.value.trim();
-      alert("Changes applied to the article (in DOM only).");
-    }
-  });
-});
-=======
-
-
-  const selectedArticle = localStorage.getItem('selectedArticle');
-  const articleToUpdate = localStorage.getItem('articleToUpdate');
-
-  if (selectedArticle && articleToUpdate) {
-    try {
-      const articleData = JSON.parse(selectedArticle);
-      let targetArticle;
-
-
-      if (articleToUpdate === 'article1') {
-        targetArticle = document.querySelector('article.inrikes:nth-of-type(1)');
-      } else if (articleToUpdate === 'article2') {
-        targetArticle = document.querySelector('article.inrikes:nth-of-type(2)');
-      } else if (articleToUpdate === 'article3') {
-        targetArticle = document.querySelector('div.border-t-4 article');
-      }
-
-      if (targetArticle) {
-
-        const titleElement = targetArticle.querySelector('.title');
-        const contentElement = targetArticle.querySelector('.content');
-
-        if (titleElement) titleElement.textContent = articleData.title;
-        if (contentElement) contentElement.textContent = articleData.content;
-      }
-    } catch (error) {
-      console.error('Error updating article:', error);
+      if (articles[i]) articles[i].style.display = "none";
     }
   }
+
+
+  function formatDate(dateString) {
+    if (!dateString) return "";
+
+    const date = new Date(dateString);
+    return date.toLocaleDateString('sv-SE');
+  }
 });
-
-
->>>>>>> Stashed changes
-
 
