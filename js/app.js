@@ -1,16 +1,15 @@
 
+<<<<<<< Updated upstream
 document.addEventListener("DOMContentLoaded", function(){
+=======
+document.addEventListener("DOMContentLoaded", function() {
+>>>>>>> Stashed changes
 
   var videos = document.querySelectorAll('.video');
-
-
-  videos.forEach(function(img) {
-
+  videos.forEach(function (img) {
     img.parentNode.style.position = "relative";
 
-
     var play = document.createElement('div');
-
     play.style.position = "absolute";
     play.style.bottom = "5px";
     play.style.left = "5px";
@@ -30,11 +29,10 @@ document.addEventListener("DOMContentLoaded", function(){
     triangle.style.borderLeft = "6px solid white";
     triangle.style.marginLeft = "2px"; // Center it a bit
 
-
     play.appendChild(triangle);
-
     img.parentNode.appendChild(play);
   });
+<<<<<<< Updated upstream
 });
 
 // document.addEventListener("DOMContentLoaded",function(){
@@ -90,5 +88,41 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+=======
+
+
+  const selectedArticle = localStorage.getItem('selectedArticle');
+  const articleToUpdate = localStorage.getItem('articleToUpdate');
+
+  if (selectedArticle && articleToUpdate) {
+    try {
+      const articleData = JSON.parse(selectedArticle);
+      let targetArticle;
+
+
+      if (articleToUpdate === 'article1') {
+        targetArticle = document.querySelector('article.inrikes:nth-of-type(1)');
+      } else if (articleToUpdate === 'article2') {
+        targetArticle = document.querySelector('article.inrikes:nth-of-type(2)');
+      } else if (articleToUpdate === 'article3') {
+        targetArticle = document.querySelector('div.border-t-4 article');
+      }
+
+      if (targetArticle) {
+
+        const titleElement = targetArticle.querySelector('.title');
+        const contentElement = targetArticle.querySelector('.content');
+
+        if (titleElement) titleElement.textContent = articleData.title;
+        if (contentElement) contentElement.textContent = articleData.content;
+      }
+    } catch (error) {
+      console.error('Error updating article:', error);
+    }
+  }
+});
+
+
+>>>>>>> Stashed changes
 
 
